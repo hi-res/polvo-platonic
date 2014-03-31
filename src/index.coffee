@@ -5,6 +5,7 @@ path = require 'path'
 
 stylus = require 'stylus'
 nib = require 'nib'
+platonic = require 'stylus-platonic'
 clone = require 'regexp-clone'
 
 module.exports = new class Index
@@ -28,6 +29,7 @@ module.exports = new class Index
     stylus( source )
     .set( 'filename', filepath )
     .use( nib() )
+    .use( platonic() )
     .import( 'nib' )
     .set('linenos', debug is true)
     .render (err, css)->
